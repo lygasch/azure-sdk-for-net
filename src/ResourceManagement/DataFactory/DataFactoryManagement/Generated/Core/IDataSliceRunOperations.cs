@@ -33,6 +33,26 @@ namespace Microsoft.Azure.Management.DataFactories.Core
     public partial interface IDataSliceRunOperations
     {
         /// <summary>
+        /// Gets a Data Slice Run instance.
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// The resource group name of the data factory.
+        /// </param>
+        /// <param name='dataFactoryName'>
+        /// A unique data factory instance name.
+        /// </param>
+        /// <param name='runId'>
+        /// A unique Data Slice Run Id.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// Cancellation token.
+        /// </param>
+        /// <returns>
+        /// The get Data Slice Run operation response.
+        /// </returns>
+        Task<DataSliceRunGetResponse> GetAsync(string resourceGroupName, string dataFactoryName, string runId, CancellationToken cancellationToken);
+        
+        /// <summary>
         /// Gets logs for a data slice run
         /// </summary>
         /// <param name='resourceGroupName'>
@@ -65,9 +85,9 @@ namespace Microsoft.Azure.Management.DataFactories.Core
         /// <param name='tableName'>
         /// A unique table instance name.
         /// </param>
-        /// <param name='dataSliceStartTime'>
-        /// The start time of the data slice queried in round-trip ISO 8601
-        /// format.
+        /// <param name='parameters'>
+        /// Parameters for specifying the filters to list data slice runs of
+        /// the table.
         /// </param>
         /// <param name='cancellationToken'>
         /// Cancellation token.
@@ -75,7 +95,7 @@ namespace Microsoft.Azure.Management.DataFactories.Core
         /// <returns>
         /// The List data slice runs operation response.
         /// </returns>
-        Task<DataSliceRunListResponse> ListAsync(string resourceGroupName, string dataFactoryName, string tableName, string dataSliceStartTime, CancellationToken cancellationToken);
+        Task<DataSliceRunListResponse> ListAsync(string resourceGroupName, string dataFactoryName, string tableName, DataSliceRunListParameters parameters, CancellationToken cancellationToken);
         
         /// <summary>
         /// Gets the next page of run instances with the link to the next page.

@@ -23,6 +23,58 @@ namespace Microsoft.Azure.Management.DataFactories
     public static class DataSliceRunOperationsExtensions
     {
         /// <summary>
+        /// Gets a Data Slice Run instance.
+        /// </summary>
+        /// <param name='operations'>
+        /// Reference to the
+        /// Microsoft.Azure.Management.DataFactories.Core.IDataSliceRunOperations.
+        /// </param>
+        /// <param name='resourceGroupName'>
+        /// Required. The resource group name of the data factory.
+        /// </param>
+        /// <param name='dataFactoryName'>
+        /// Required. A unique data factory instance name.
+        /// </param>
+        /// <param name='runId'>
+        /// Required. A unique Data Slice Run Id.
+        /// </param>
+        /// <returns>
+        /// The get Data Slice Run operation response.
+        /// </returns>
+        public static DataSliceRunGetResponse Get(this IDataSliceRunOperations operations, string resourceGroupName, string dataFactoryName, string runId)
+        {
+            return Task.Factory.StartNew((object s) =>
+            {
+                return ((IDataSliceRunOperations)s).GetAsync(resourceGroupName, dataFactoryName, runId);
+            }
+            , operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Gets a Data Slice Run instance.
+        /// </summary>
+        /// <param name='operations'>
+        /// Reference to the
+        /// Microsoft.Azure.Management.DataFactories.Core.IDataSliceRunOperations.
+        /// </param>
+        /// <param name='resourceGroupName'>
+        /// Required. The resource group name of the data factory.
+        /// </param>
+        /// <param name='dataFactoryName'>
+        /// Required. A unique data factory instance name.
+        /// </param>
+        /// <param name='runId'>
+        /// Required. A unique Data Slice Run Id.
+        /// </param>
+        /// <returns>
+        /// The get Data Slice Run operation response.
+        /// </returns>
+        public static Task<DataSliceRunGetResponse> GetAsync(this IDataSliceRunOperations operations, string resourceGroupName, string dataFactoryName, string runId)
+        {
+            return operations.GetAsync(resourceGroupName, dataFactoryName, runId, CancellationToken.None);
+        }
+
+        /// <summary>
         /// Gets logs for a data slice run
         /// </summary>
         /// <param name='operations'>
@@ -103,9 +155,8 @@ namespace Microsoft.Azure.Management.DataFactories
         /// <param name='tableName'>
         /// Required. A unique table instance name.
         /// </param>
-        /// <param name='dataSliceStartTime'>
-        /// Required. The start time of the data slice queried in round-trip
-        /// ISO 8601 format.
+        /// <param name='parameters'>
+        /// Required. Parameters for specifying the filters to list data slice runs of the table.
         /// </param>
         /// <returns>
         /// The List data slice runs operation response.
@@ -115,14 +166,14 @@ namespace Microsoft.Azure.Management.DataFactories
             string resourceGroupName,
             string dataFactoryName,
             string tableName,
-            string dataSliceStartTime)
+            DataSliceRunListParameters parameters)
         {
             return Task.Factory.StartNew(
                 s => ((IDataSliceRunOperations)s).ListAsync(
                     resourceGroupName,
                     dataFactoryName,
                     tableName,
-                    dataSliceStartTime),
+                    parameters),
                 operations,
                 CancellationToken.None,
                 TaskCreationOptions.None,
@@ -146,9 +197,8 @@ namespace Microsoft.Azure.Management.DataFactories
         /// <param name='tableName'>
         /// Required. A unique table instance name.
         /// </param>
-        /// <param name='dataSliceStartTime'>
-        /// Required. The start time of the data slice queried in round-trip
-        /// ISO 8601 format.
+        /// <param name='parameters'>
+        /// Required. Parameters for specifying the filters to list data slice runs of the table.
         /// </param>
         /// <returns>
         /// The List data slice runs operation response.
@@ -158,13 +208,13 @@ namespace Microsoft.Azure.Management.DataFactories
             string resourceGroupName,
             string dataFactoryName,
             string tableName,
-            string dataSliceStartTime)
+            DataSliceRunListParameters parameters)
         {
             return operations.ListAsync(
                 resourceGroupName,
                 dataFactoryName,
                 tableName,
-                dataSliceStartTime,
+                parameters,
                 CancellationToken.None);
         }
 

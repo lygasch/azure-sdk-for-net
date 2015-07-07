@@ -32,6 +32,11 @@ namespace Microsoft.Azure.Management.DataFactories.Models
         /// </summary>
         public IList<string> Arguments { get; set; }
 
+        /// <summary>
+        /// The <see cref="HDInsightActivityDebugInfoOption"/> settings to use.
+        /// </summary>
+        public string GetDebugInfo { get; set; }
+
         protected HDInsightActivityBase()
         {
             this.Arguments = new List<string>();
