@@ -545,7 +545,7 @@ namespace DataFactory.Tests.Framework.JsonSamples
             {
                 name: ""MLActivity3"",
                 description: ""Test activity description"", 
-                type: ""AzureMLBatchExecutionActivity"",
+                type: ""AzureMLBatchExecution"",
                 inputs: 
                 [ 
                     {
@@ -603,7 +603,7 @@ namespace DataFactory.Tests.Framework.JsonSamples
             {
                 name: ""MLActivity3"",
                 description: ""Test activity description"", 
-                type: ""AzureMLBatchExecutionActivity"",
+                type: ""AzureMLBatchExecution"",
                 inputs: 
                 [ 
                     {

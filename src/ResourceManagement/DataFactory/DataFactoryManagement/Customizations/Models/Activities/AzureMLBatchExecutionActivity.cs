@@ -20,6 +20,7 @@ namespace Microsoft.Azure.Management.DataFactories.Models
     /// <summary>
     /// AzureML Batch Execution Service activity.
     /// </summary>
+    [AdfTypeName("AzureMLBatchExecution")]
     public class AzureMLBatchExecutionActivity : ActivityTypeProperties
     {
         /// <summary>
