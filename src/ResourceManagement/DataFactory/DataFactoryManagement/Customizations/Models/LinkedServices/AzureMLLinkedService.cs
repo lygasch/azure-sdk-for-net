@@ -43,7 +43,7 @@ namespace Microsoft.Azure.Management.DataFactories.Models
         /// Optional. The AzureML endpoint management REST URL for the endpoint. The URL should be of the form:
         /// https://management.azureml.net/workspaces/_workspace id_/webservices/_service id_/endpoints/_endpointName_.
         /// Include this property for updating the endpoint after retraining, using 
-        /// <see cref="Microsoft.Azure.Management.DataFactories.Models.AzureMLUpdateResourceActivity" />.
+        /// <see cref="AzureMLUpdateResourceActivity" />.
         /// </summary>
         public string ManagementEndpoint { get; set; }
 

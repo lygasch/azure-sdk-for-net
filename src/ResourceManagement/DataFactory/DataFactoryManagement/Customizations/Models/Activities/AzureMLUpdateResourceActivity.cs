@@ -19,13 +19,13 @@ using System.Collections.Generic;
 namespace Microsoft.Azure.Management.DataFactories.Models
 {
     /// <summary>
-    /// ADF Activity for AzureML updating of a Web service endpoints with a new trained model. See 
+    /// ADF Activity for AzureML updating of a Web service endpoint with a new trained model. See 
     /// https://azure.microsoft.com/documentation/articles/machine-learning-retrain-models-programmatically/
     /// for information on how to create retrainable Azure Machine Learning services. You can create an ADF Pipeline with 
-    /// an <see cref="Microsoft.Azure.Management.DataFactories.Models.AzureMLBatchExecutionActivity" /> to perform retraining and produce a new iLearner in an output Dataset, then use that
+    /// an <see cref="AzureMLBatchExecutionActivity" /> to perform retraining and produce a new iLearner in an output Dataset, then use that
     /// Dataset as input to this Activity to patch a batch scoring endpoint.
     /// 
-    /// The AzureML Linked Service for this activity must contain the managment URL and API key.
+    /// The AzureML Linked Service for this activity must contain the management URL and API key.
     /// </summary>
     [AdfTypeName("AzureMLUpdateResource")]
     public class AzureMLUpdateResourceActivity : ActivityTypeProperties
@@ -43,11 +43,7 @@ namespace Microsoft.Azure.Management.DataFactories.Models
 
         public AzureMLUpdateResourceActivity(string iLearnerDataset)
         {
-            if (iLearnerDataset == null)
-            {
-                throw new ArgumentNullException("iLearnerDataset");
-            }
-            this.ILearnerDatasetName = iLearnerDataset;
+            Ensure.IsNotNull(iLearnerDataset, "iLearnerDataset");
         }
     }
 }
