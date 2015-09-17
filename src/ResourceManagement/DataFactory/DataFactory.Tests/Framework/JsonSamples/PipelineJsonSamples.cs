@@ -628,6 +628,51 @@ namespace DataFactory.Tests.Framework.JsonSamples
 }
 ";
 
+        [JsonSample]
+        public const string AzureMLUpdatePipeline = @"
+{
+    name: ""My updatable machine learning pipeline"",
+    properties: 
+    {
+        description : ""ML pipeline description"",
+        hubName : ""someHub"",
+        activities:
+        [
+            {
+                name: ""ML Update Resource Activity"",
+                description: ""Test activity description"", 
+                type: ""AzureMLUpdateResource"",
+                typeProperties: {
+                    iLearnerDatasetName: ""retraining output dataset""
+                },
+                inputs: 
+                [ 
+                    {
+                        name: ""csvBlob""
+                    }
+                ],
+                outputs: 
+                [ 
+                    {
+                        name: ""retraining output dataset""
+                    }
+                ],
+                linkedServiceName: ""mlLinkedService"",
+                policy:
+                {
+                    concurrency: 1,
+                    executionPriorityOrder: ""NewestFirst"",
+                    retry: 3,
+                        timeout: ""00:00:05"",
+                        delay: ""00:00:01""
+                }
+            }
+        ]
+    }
+}
+";
+
+
 //        [JsonSample("ExtraProperties")]
 //        public const string ExtraPropertiesPipeline = @"
 //{

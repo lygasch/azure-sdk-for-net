@@ -22,6 +22,11 @@ namespace Microsoft.Azure.Management.DataFactories.Models
     public class AzureMLLinkedService : LinkedServiceTypeProperties
     {
         /// <summary>
+        /// Optional. Name of the AzureML web service (informational only).
+        /// </summary>
+        public string ExperimentName { get; set; }
+
+        /// <summary>
         /// Required. The API key for accessing the AzureML model endpoint.
         /// </summary>
         [AdfRequired]
@@ -33,6 +38,14 @@ namespace Microsoft.Azure.Management.DataFactories.Models
         /// </summary>
         [AdfRequired]
         public string MlEndpoint { get; set; }
+
+        /// <summary>
+        /// Optional. The AzureML endpoint management REST URL for the endpoint. The URL should be of the form:
+        /// https://management.azureml.net/workspaces/_workspace id_/webservices/_service id_/endpoints/_endpointName_.
+        /// Include this property for updating the endpoint after retraining, using 
+        /// <see cref="Microsoft.Azure.Management.DataFactories.Models.AzureMLUpdateResourceActivity" />.
+        /// </summary>
+        public string ManagementEndpoint { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the AzureMLLinkedService class.

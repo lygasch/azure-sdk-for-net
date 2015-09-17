@@ -24,7 +24,7 @@ namespace Microsoft.Azure.Management.DataFactories.Models
     public class AzureMLBatchExecutionActivity : ActivityTypeProperties
     {
         /// <summary>
-        /// Optional. Key,Value pairs to be passed to the AzureML Batch Execution Service Endpoint 
+        /// Optional. Key,Value pairs to be passed to the AzureML Batch Execution Service Endpoint. 
         /// Keys must match the names of web service parameters defined in the published AzureML web service. 
         /// Values may include ADF functions to be resolved at each slice execution time 
         /// (See https://msdn.microsoft.com/en-us/library/azure/dn835056.aspx). 
@@ -34,14 +34,14 @@ namespace Microsoft.Azure.Management.DataFactories.Models
 
         /// <summary>
         /// Optional. Key,Value pairs mapping the AzureML endpoint's Web Service Output names to names of ADF Blob
-        /// Tables where the batch execution output should be written. This information will be passed in the 
+        /// Datasets where the batch execution output should be written. This information will be passed in the 
         /// WebServiceOutputs property of the AzureML batch execution request.
-        /// Mapped Tables must be included in the Activity's Outputs.
+        /// Mapped Datasets must be included in the Activity's Outputs.
         /// </summary>
         public IDictionary<string, string> WebServiceOutputs { get; set; }
 
         /// <summary>
-        /// Optional. Name of ADF Blob Table giving the input to the batch execution. This information will be passed
+        /// Optional. Name of ADF Blob Dataset giving the input to the batch execution. This information will be passed
         /// in the WebServiceInput property of the AzureML batch execution request.
         /// </summary>
         public string WebServiceInput { get; set; }
