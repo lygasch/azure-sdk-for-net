@@ -643,18 +643,19 @@ namespace DataFactory.Tests.Framework.JsonSamples
                 description: ""Test activity description"", 
                 type: ""AzureMLUpdateResource"",
                 typeProperties: {
-                    iLearnerDatasetName: ""retraining output dataset""
+                    trainedModelDatasetName: ""retraining output dataset"",
+                    trainedModelName: ""Decision Tree trained model""
                 },
                 inputs: 
                 [ 
                     {
-                        name: ""csvBlob""
+                        name: ""retraining output dataset""
                     }
                 ],
                 outputs: 
                 [ 
                     {
-                        name: ""retraining output dataset""
+                        name: ""some other output""
                     }
                 ],
                 linkedServiceName: ""mlLinkedService"",

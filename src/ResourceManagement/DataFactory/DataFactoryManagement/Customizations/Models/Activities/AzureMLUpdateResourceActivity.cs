@@ -19,7 +19,7 @@ using System.Collections.Generic;
 namespace Microsoft.Azure.Management.DataFactories.Models
 {
     /// <summary>
-    /// ADF Activity for AzureML updating of a Web service endpoint with a new trained model. See 
+    /// ADF Activity for updating the Trained Model module of an AzureML Web service endpoint with a new trained model. See 
     /// https://azure.microsoft.com/documentation/articles/machine-learning-retrain-models-programmatically/
     /// for information on how to create retrainable Azure Machine Learning services. You can create an ADF Pipeline with 
     /// an <see cref="AzureMLBatchExecutionActivity" /> to perform retraining and produce a new iLearner in an output Dataset, then use that
@@ -35,15 +35,24 @@ namespace Microsoft.Azure.Management.DataFactories.Models
         /// The Dataset must be included in this Activity's Pipeline Inputs.
         /// </summary>
         [AdfRequired]
-        public string ILearnerDatasetName { get; set; }
+        public string TrainedModelDatasetName { get; set; }
+
+        /// <summary>
+        /// Required. Name of the Trained Model module in the experiment graph to be updated.
+        /// </summary>
+        [AdfRequired]
+        public string TrainedModelName { get; set; }
 
         public AzureMLUpdateResourceActivity()
         {
         }
 
-        public AzureMLUpdateResourceActivity(string iLearnerDataset)
+        public AzureMLUpdateResourceActivity(string trainedModelDatasetName, string trainedModelName)
         {
-            Ensure.IsNotNull(iLearnerDataset, "iLearnerDataset");
+            Ensure.IsNotNull(trainedModelDatasetName, "trainedModelDatasetName");
+            Ensure.IsNotNull(trainedModelName, "trainedModelName");
+            this.TrainedModelDatasetName = trainedModelDatasetName;
+            this.TrainedModelName = trainedModelName;
         }
     }
 }

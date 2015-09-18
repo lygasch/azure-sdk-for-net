@@ -18,7 +18,8 @@ using System.Collections.Generic;
 namespace Microsoft.Azure.Management.DataFactories.Models
 {
     /// <summary>
-    /// AzureML Web Service batch scoring activity.
+    /// AzureML Web Service batch scoring activity. See also <see cref="AzureMLBatchExecutionActivity"/>
+    /// for more flexible options.
     /// </summary>
     [AdfTypeName("AzureMLBatchScoring")]
     public class AzureMLBatchScoringActivity : ActivityTypeProperties
@@ -27,7 +28,7 @@ namespace Microsoft.Azure.Management.DataFactories.Models
         /// Key,Value pairs to be passed to the AzureML Batch Execution Service Endpoint 
         /// (these are also referred to as GlobalParameters). Keys must match the names of web service
         /// parameters defined in published the AzureML web service. Values may include ADF macros to be
-        /// resolved at each slice execution time.
+        /// resolved at each slice execution time. 
         /// </summary>
         public IDictionary<string, string> WebServiceParameters { get; set; }
 

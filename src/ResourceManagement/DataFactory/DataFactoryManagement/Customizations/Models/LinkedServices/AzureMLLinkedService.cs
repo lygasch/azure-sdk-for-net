@@ -22,30 +22,27 @@ namespace Microsoft.Azure.Management.DataFactories.Models
     public class AzureMLLinkedService : LinkedServiceTypeProperties
     {
         /// <summary>
-        /// Optional. Name of the AzureML web service (informational only).
-        /// </summary>
-        public string ExperimentName { get; set; }
-
-        /// <summary>
         /// Required. The API key for accessing the AzureML model endpoint.
         /// </summary>
         [AdfRequired]
         public string ApiKey { get; set; }
 
         /// <summary>
-        /// Required. The AzureML Web Service REST URL for requesting batch
-        /// scoring.
+        /// Required. The Batch Execution REST URL for an Azure ML Web Service endpoint.
+        /// The endpoint should be of the form:
+        /// https://_region_.services.azureml.net/workspaces/_workspace_id_/services/_service_id_/jobs?api-version=2.0"
         /// </summary>
         [AdfRequired]
         public string MlEndpoint { get; set; }
 
         /// <summary>
-        /// Optional. The AzureML endpoint management REST URL for the endpoint. The URL should be of the form:
-        /// https://management.azureml.net/workspaces/_workspace id_/webservices/_service id_/endpoints/_endpointName_.
+        /// Optional. The Update Resource REST URL for an Azure ML Web Service endpoint.
+        /// The endpoint should be of the form:
+        /// https://management.azureml.net/workspaces/_workspace_id_/webservices/_service_id_/endpoints/_endpointName_.
         /// Include this property for updating the endpoint after retraining, using 
         /// <see cref="AzureMLUpdateResourceActivity" />.
         /// </summary>
-        public string ManagementEndpoint { get; set; }
+        public string UpdateResourceEndpoint { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the AzureMLLinkedService class.
