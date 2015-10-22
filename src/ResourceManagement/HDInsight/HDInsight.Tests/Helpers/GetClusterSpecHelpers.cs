@@ -42,7 +42,7 @@ namespace HDInsight.Tests.Helpers
                 {
                     ClusterDefinition = new ClusterDefinition
                     {
-                        ClusterType = HDInsightClusterType.Hadoop
+                        ClusterType = "Hadoop"
                     },
                     ClusterVersion = "3.2",
                     OperatingSystemType = OSType.Linux
@@ -94,7 +94,7 @@ namespace HDInsight.Tests.Helpers
                 {
                     LinuxOperatingSystemProfile = new LinuxOperatingSystemProfile
                     {
-                        UserName = "hadoop",
+                        UserName = "sshuser",
                         SshProfile = new SshProfile
                         {
                             SshPublicKeys = sshPublicKeys
@@ -120,7 +120,7 @@ namespace HDInsight.Tests.Helpers
                 {
                     LinuxOperatingSystemProfile = new LinuxOperatingSystemProfile
                     {
-                        UserName = "hadoop",
+                        UserName = "sshuser",
                         SshProfile = new SshProfile
                         {
                             SshPublicKeys = sshPublicKeys
@@ -138,12 +138,12 @@ namespace HDInsight.Tests.Helpers
         {
             var cluster = new ClusterCreateParametersExtended
             {
-                Location = "West US",
+                Location = "East US",
                 Properties = new ClusterCreateProperties
                 {
                     ClusterDefinition = new ClusterDefinition
                     {
-                        ClusterType = HDInsightClusterType.Hadoop
+                        ClusterType = "Hadoop"
                     },
                     ClusterVersion = "3.1",
                     OperatingSystemType = OSType.Windows
@@ -225,7 +225,7 @@ namespace HDInsight.Tests.Helpers
                 UserName = HttpUser,
                 Password = HttpPassword,
                 DefaultStorageContainer = DefaultContainer,
-                Location =  "West US"
+                Location =  "East US"
             };
             var actions = new List<ScriptAction>();
             var action = new ScriptAction("action", new Uri("https://uri.com"), "params");
@@ -249,10 +249,34 @@ namespace HDInsight.Tests.Helpers
                 UserName = HttpUser,
                 Password = HttpPassword,
                 DefaultStorageContainer = DefaultContainer,
-                Location = "West US",
+                Location = "East US",
                 SshUserName = SshUser,
                 SshPassword = SshPassword,
                 Version = "3.2"
+            };
+            return clusterparams;
+        }
+
+
+        public static ClusterCreateParameters GetCustomVmSizesCreateParametersIaas()
+        {
+            var clusterparams = new ClusterCreateParameters
+            {
+                ClusterSizeInNodes = 1,
+                ClusterType = HDInsightClusterType.HBase,
+                WorkerNodeSize = "Large",
+                DefaultStorageAccountName = StorageAccountName,
+                DefaultStorageAccountKey = StorageAccountKey,
+                OSType = OSType.Linux,
+                UserName = HttpUser,
+                Password = HttpPassword,
+                DefaultStorageContainer = DefaultContainer,
+                Location = "East US",
+                SshUserName = SshUser,
+                SshPassword = SshPassword,
+                Version = "3.2",
+                HeadNodeSize = "ExtraLarge",
+                ZookeeperNodeSize = "Large",
             };
             return clusterparams;
         }
