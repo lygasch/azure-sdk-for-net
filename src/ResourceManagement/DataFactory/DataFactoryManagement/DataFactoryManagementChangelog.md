@@ -1,5 +1,12 @@
 ﻿For additional details on features, see the full [Azure Data Factory Release Notes](https://azure.microsoft.com/en-us/documentation/articles/data-factory-release-notes). 
 
+## Version 4.0.2
+_Release date: 2015.10.22_
+### Feature Additions
+* New Activity type: AzureMLBatchExecutionActivity. 
+    * Supports all configuration options for an Azure Machine Learning model. 
+* Add Recursive property to BlobSource and FileSystemSource. 
+
 ## Version 4.0.1
 _Release date: 2015.10.13_
 
@@ -47,10 +54,6 @@ _Release date: 2015.08.29_
     * Does not accept copy-related properties removed in version 2.0.0 for create requests. 
 * Remove Database and Schema properties from TeradataLinkedService. 
 
-### Feature Additions
-* New Activity type: AzureMLBatchExecutionActivity. 
-    * Supports all configuration options for an Azure Machine Learning model. 
-* Add Recursive property to BlobSource and FileSystemSource. 
 
 
 ## Version 2.0.1
