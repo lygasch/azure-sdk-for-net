@@ -2,10 +2,12 @@
 
 ## Version 4.0.2
 _Release date: 2015.10.22_
+
 ### Feature Additions
-* New Activity type: AzureMLBatchExecutionActivity. 
-    * Supports all configuration options for an Azure Machine Learning model. 
-* Add Recursive property to BlobSource and FileSystemSource. 
+
+* New Activity type: AzureMLUpdateResource, along with a new optional property in the AzureML Linked Service, "updateResourceEndpoint". 
+   * This Activity takes as input a blob Dataset for an .iLearner file (e.g. produced as output of a retraining batch execution) and uploads it to the indicated management endpoint.
+
 
 ## Version 4.0.1
 _Release date: 2015.10.13_
@@ -56,8 +58,15 @@ _Release date: 2015.08.29_
 
 
 
+### Feature Additions
+* New Activity type: AzureMLBatchExecutionActivity. 
+    * Supports all configuration options for an Azure Machine Learning model. 
+* Add Recursive property to BlobSource and FileSystemSource. 
+
+
 ## Version 2.0.1
 _Release date: 2015.08.01_
+
 
 ### Bug Fixes
 * Do not throw on errors during deserialization of service responses.  
@@ -80,11 +89,6 @@ _Release date: 2015.08.01_
 * Remove Published property from TableProperties. 
 
 ### Feature Additions
-<<<<<<< HEAD
-* New Activity type: AzureMLUpdateResource, along with a new optional property in the AzureML Linked Service, "updateResourceEndpoint". 
-This Activity takes as input a blob Dataset for an .iLearner file (e.g. produced as output of a retraining batch execution) 
-and uploads it to the indicated management endpoint.
-=======
 * Add support for SQL Data Warehouse. 
     * Add AzureSqlDataWarehouseLinkedService, AzureSqlDataWarehouseTableDataset, SqlDWSource and SqlDWSink.
 
@@ -96,7 +100,6 @@ _Release date: 2015.07.27_
 
 * Return null when deserializing unknown nested polymorphic types, rather than throw an exception.
 * Preserve the case of dictionary keys during serialization. 
->>>>>>> 1c5523be6077a9e4d3d502e6ddd4cca81fa9a30b
 
 
 ## Version 1.0.1
