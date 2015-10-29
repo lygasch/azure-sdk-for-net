@@ -1,7 +1,7 @@
 ﻿For additional details on features, see the full [Azure Data Factory Release Notes](https://azure.microsoft.com/en-us/documentation/articles/data-factory-release-notes). 
 
-## Version 4.0.2
-_Release date: 2015.10.22_
+## Version 4.0.3
+_Release date: 2015.10.30_
 
 ### Feature Additions
 
@@ -9,6 +9,12 @@ _Release date: 2015.10.22_
    * This Activity takes as input a blob Dataset for an .iLearner file (e.g. produced as output of a retraining batch execution) and uploads it to the indicated management endpoint.
 
 
+## Version 4.0.2
+_Release date: 2015.10.28_
+
+## Bug Fixes
+* Successful gateway creation response has status Succeeded and includes the gateway key.
+ 
 ## Version 4.0.1
 _Release date: 2015.10.13_
 
