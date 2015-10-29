@@ -12,6 +12,18 @@ _Release date: 2015.10.30_
 ## Version 4.0.2
 _Release date: 2015.10.28_
 
+### Feature Additions
+* The following linked service types have been added: 
+    * AzureDataLakeStoreLinkedService
+    * AzureDataLakeAnalyticsLinkedService
+* The following activity types have been added: 
+    * DataLakeAnalyticsUSQLActivity
+* The following dataset types have been added: 
+    * AzureDataLakeStoreDataset
+* The following source and sink types for Copy Activity have been added:
+    * AzureDataLakeStoreSource
+    * AzureDataLakeStoreSink
+
 ## Bug Fixes
 * Successful gateway creation response has status Succeeded and includes the gateway key.
  
