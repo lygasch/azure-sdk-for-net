@@ -16,13 +16,13 @@
 namespace Microsoft.Azure.Management.DataFactories.Models
 {
     /// <summary>
-    /// AzureML Web Service linked service.
+    /// Azure ML Web Service linked service.
     /// </summary>
     [AdfTypeName("AzureML")]
     public class AzureMLLinkedService : LinkedServiceTypeProperties
     {
         /// <summary>
-        /// Required. The API key for accessing the AzureML model endpoint.
+        /// Required. The API key for accessing the Azure ML model endpoint.
         /// </summary>
         [AdfRequired]
         public string ApiKey { get; set; }
